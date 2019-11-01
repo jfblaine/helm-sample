@@ -1,5 +1,9 @@
 # helm-sample
 ```
+wget https://get.helm.sh/helm-v2.15.2-linux-amd64.tar.gz
+tar xvf helm-v2.15.2-linux-amd64.tar.gz
+./linux-amd64/helm version
+
 oc new-project tiller
 export TILLER_NAMESPACE=tiller
 curl -s https://get.helm.sh/helm-v2.15.2-linux-amd64.tar.gz
