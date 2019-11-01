@@ -13,4 +13,9 @@ TILLER_SAMPLEAPP_NAMESPACE=tiller-sampleapp
 oc new-project ${TILLER_SAMPLEAPP_NAMESPACE}
 oc policy add-role-to-user edit "system:serviceaccount:${TILLER_NAMESPACE}:tiller"
 helm install nodejs.tar.gz -n nodejs
+
+helm list --all
+helm del <release> --purge # to permanently delete
+helm install <tar|dir|etc> # --debug
+
 ```
