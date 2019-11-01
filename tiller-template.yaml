@@ -1,15 +1,27 @@
 kind: Template
 apiVersion: v1
 objects:
+- kind: Namespace
+  apiVersion: v1
+  metadata:
+    name: ${TILLER_NAMESPACE}
+
+- kind: Namespace
+  apiVersion: v1
+  metadata:
+    name: ${TILLER_APP_NAMESPACE}
+
 - kind: ServiceAccount
   apiVersion: v1
   metadata:
     name: tiller
+    namespace: ${TILLER_NAMESPACE}
 
 - kind: Role
   apiVersion: v1
   metadata:
     name: tiller
+    namespace: ${TILLER_NAMESPACE}
   rules:
   - apiGroups:
     - ""
@@ -32,6 +44,7 @@ objects:
   apiVersion: v1
   metadata:
     name: tiller
+    namespace: ${TILLER_NAMESPACE}
   roleRef:
     name: tiller
     namespace: ${TILLER_NAMESPACE}
@@ -43,6 +56,7 @@ objects:
   kind: Deployment
   metadata:
     name: tiller
+    namespace: ${TILLER_NAMESPACE}
   spec:
     replicas: 1
     selector:
@@ -81,4 +95,6 @@ parameters:
   value: v2.15.2
   required: true
 - name: TILLER_NAMESPACE
+  required: true
+- name: TILLER_APP_NAMESPACE
   required: true
