@@ -1,8 +1,8 @@
 # helm-sample
 ```
 # helm install and helpful commands
-wget https://get.helm.sh/helm-v2.15.2-linux-amd64.tar.gz
-tar xvf helm-v2.15.2-linux-amd64.tar.gz
+wget https://get.helm.sh/helm-v2.16.3-linux-amd64.tar.gz
+tar xvf helm-v2.16.3-linux-amd64.tar.gz
 ./linux-amd64/helm version
 helm list --all
 helm del <release> --purge # to permanently delete
